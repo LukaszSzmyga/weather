@@ -1,13 +1,15 @@
-﻿if('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        loadWeather(position.coords.latitude + ',' + position.coords.longitude);
-    });
-} else {
-    loadWeather('LosAngeles, CA', '');
+﻿function geo() {
+    if('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            loadWeather(position.coords.latitude + ',' + position.coords.longitude);
+        });
+    } else {
+           
+    };
 };
 
 $(document).ready(function() {
-    setInterval(loadWeather, 10000);
+    setInterval(geo(), 1800000);
 });
 
 function loadWeather(location, woeid) {
