@@ -2,14 +2,16 @@
     if('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
             loadWeather(position.coords.latitude + ',' + position.coords.longitude);
+        }, function(error) {
+            loadWeather('London', '44418');
         });
     } else {
-         loadWeather('', '');  
+         error;  
     };
 };
 
 $(document).ready(function() {
-    setInterval(geo(), 1800000);
+    setInterval(geo, 1800000);
 });
 
 function loadWeather(location, woeid) {
