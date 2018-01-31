@@ -4,7 +4,7 @@
             loadWeather(position.coords.latitude + ',' + position.coords.longitude);
         });
     } else {
-           
+         loadWeather('', '');  
     };
 };
 
