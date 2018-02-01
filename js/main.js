@@ -2,12 +2,11 @@
     if('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
             loadWeather(position.coords.latitude + ',' + position.coords.longitude);
-        }, function(error) {
-            loadWeather('London', '44418');
-        });
+        }, loadDefaultLocation
+        );
     } else {
-         error;  
-    };
+         loadDefaultLocation;          
+        };
 };
 
 $(document).ready(function() {
@@ -32,8 +31,12 @@ function loadWeather(location, woeid) {
             $(".windspeed").html(wind);
             $(".humidity").text(humidity);
         },
-        error: function(error) {
-            $(".error").html('<p>' + error + '</p>');
+        error: function() {
+            $(".error").html('<p>' + loadDefaultLocation + '</p>');
         }
     });
 };
+
+function loadDefaultLocation() {
+    loadWeather('London', '44418');
+}
