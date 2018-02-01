@@ -39,4 +39,4 @@ function loadWeather(location, woeid) {
 
 function loadDefaultLocation() {
     loadWeather('London', '44418');
-}
+};
