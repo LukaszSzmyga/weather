@@ -5,7 +5,7 @@
         }, loadDefaultLocation
         );
     } else {
-         loadDefaultLocation;          
+         loadDefaultLocation();          
         };
 };
 
