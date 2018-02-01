@@ -11,7 +11,7 @@
 };
 
 $(document).ready(function() {
-    setInterval(geo(), 1800000);
+    setInterval(geo, 1800000);
 });
 
 function loadWeather(location, woeid) {
