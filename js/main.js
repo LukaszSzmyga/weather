@@ -2,7 +2,7 @@
     if('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
             loadWeather(position.coords.latitude + ',' + position.coords.longitude);
-        }, loadDefaultLocation
+        }, loadDefaultLocation()
         );
     } else {
          loadDefaultLocation();          
@@ -10,7 +10,7 @@
 };
 
 $(document).ready(function() {
-    setInterval(geo, 1800000);
+    setInterval(geo(), 1800000);
 });
 
 function loadWeather(location, woeid) {
